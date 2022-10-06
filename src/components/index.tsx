@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { HotelData, Data } from "../fake-data/index";
 import "./index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+
 export default function Home() {
   const listItem: Data[] = HotelData;
   const [parking, setParking] = useState<boolean>(false);
   const [petting, setPetting] = useState<boolean>(false);
   const [all, setAll] = useState<boolean>(true);
   const [length, setLength] = useState<number>(5);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState<string>("");
 
   function countData(): Data[] {
     const filterData = listItem.filter((data) => {
@@ -110,6 +114,7 @@ export default function Home() {
                 <img src={data.imageSrc} />
                 <div className="content">
                   <h2 className="title">{data.title}</h2>
+                  <FontAwesomeIcon icon={faLocationDot} color="red" />
                   <h4 className="area">{data.area}</h4>
                   <p className="description">{data.description}</p>
                 </div>

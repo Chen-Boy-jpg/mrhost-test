@@ -8,6 +8,8 @@
   width: 20vw;
   height: 40vh;
   border: 1px solid rgba(0, 0, 0, 0.205);
+  margin-top: 5%;
+  padding: 20px 10px;
 }
 .form li,
 h4 {
@@ -33,6 +35,7 @@ h4 {
 }
 .content {
   width: 40%;
+  align-self: center;
 }
 .content .title,
 .area,
@@ -47,10 +50,16 @@ h4 {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+.area {
+  display: inline;
+  margin-left: 5px;
+  color: red;
+}
 .rank {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 0 15px;
 }
 .score {
   background-color: red;
