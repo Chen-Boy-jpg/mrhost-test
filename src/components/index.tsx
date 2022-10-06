@@ -7,6 +7,26 @@ export default function Home() {
   const [petting, setPetting] = useState<boolean>(false);
   const [all, setAll] = useState<boolean>(true);
   const [length, setLength] = useState<number>(5);
+  const [selected, setSelected] = useState("");
+
+  function countData(): Data[] {
+    const filterData = listItem.filter((data) => {
+      if (all) {
+        return true;
+      } else if (parking && petting) {
+        return data.isParking === true && data.isPetting === true;
+      } else if (parking) {
+        return data.isParking === true;
+      } else if (petting) {
+        return data.isPetting === true;
+      }
+    });
+    return filterData;
+  }
+
+  function handleSelected(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelected(e.target.value);
+  }
 
   function onChangeAll() {
     setAll(!all);
@@ -61,33 +81,27 @@ export default function Home() {
         </li>
       </div>
       <div>
-        <h2>
-          找到
-          {
-            listItem.filter((data) => {
-              if (all) {
-                return true;
-              } else if (parking && petting) {
-                return data.isParking === true && data.isPetting === true;
-              } else if (parking) {
-                return data.isParking === true;
-              } else if (petting) {
-                return data.isPetting === true;
-              }
-            }).length
-          }
-          間飯店
-        </h2>
-        {listItem
-          .filter((data) => {
-            if (all) {
-              return true;
-            } else if (parking && petting) {
-              return data.isParking === true && data.isPetting === true;
-            } else if (parking) {
-              return data.isParking === true;
-            } else if (petting) {
-              return data.isPetting === true;
+        <div className="card-title">
+          <h2>
+            找到
+            {countData().length}
+            間飯店
+          </h2>
+          <select onChange={handleSelected}>
+            <option>為您精選</option>
+            <option>價格低到高</option>
+            <option>評分低到高</option>
+          </select>
+        </div>
+
+        {countData()
+          .sort(function (a: Data, b: Data): number {
+            if (selected === "價格低到高") {
+              return a.price - b.price;
+            } else if (selected === "評分低到高") {
+              return a.score - b.score;
+            } else {
+              return 0;
             }
           })
           .map((data) => {
