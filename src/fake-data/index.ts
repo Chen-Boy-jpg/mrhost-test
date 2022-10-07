@@ -1,4 +1,4 @@
-import WestDoorHotel from "../assets/台北西門町意舍酒店.jpg";
+import WestDoorHotel from "../assets/west.jpg";
 import CadaHotel from "../assets/台北凱達大飯店.jpg";
 import CityHotel from "../assets/城市商旅-南東館.jpg";
 import HotSpringHotel from "../assets/鳳凰閣溫泉旅店.jpg";
