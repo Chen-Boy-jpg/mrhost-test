@@ -1,0 +1,71 @@
+.home {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.form {
+  width: 20vw;
+  height: 40vh;
+  border: 1px solid rgba(0, 0, 0, 0.205);
+  margin-top: 5%;
+  padding: 20px 10px;
+}
+.form li,
+h4 {
+  margin-top: 15px;
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 60vw;
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.267);
+
+  margin-top: 3%;
+}
+.card img {
+  width: 20vw;
+  height: 100%;
+}
+.content {
+  width: 40%;
+  align-self: center;
+}
+.content .title,
+.area,
+.description {
+  margin-top: 10px;
+}
+.description {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.area {
+  display: inline;
+  margin-left: 5px;
+  color: red;
+}
+.rank {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 15px;
+}
+.score {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+select {
+  height: 5vh;
+}
